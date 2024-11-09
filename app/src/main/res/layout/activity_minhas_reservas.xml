@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/campoQuantidadePessoasEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Quantidade de Pessoas"
+        android:inputType="number"
+        android:enabled="false" />
+
+    <EditText
+        android:id="@+id/campoHorarioReservaEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Horário da Reserva"
+        android:inputType="time"
+        android:enabled="false" />
+
+    <Button
+        android:id="@+id/botaoEditarReserva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Editar Reserva"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/botaoCancelarReserva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelar Reserva"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/botaoSalvarAlteracoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar edicao"
+        android:layout_marginTop="16dp" />
+</LinearLayout>
