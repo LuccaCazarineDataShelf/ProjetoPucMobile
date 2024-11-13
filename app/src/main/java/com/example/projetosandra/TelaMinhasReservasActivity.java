@@ -1,26 +1,23 @@
 package com.example.projetosandra;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.ContentValues;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.Calendar;
+
 
 public class TelaMinhasReservasActivity extends AppCompatActivity {
 
-    private EditText campoQuantidadePessoasEdit, campoHorarioReservaEdit;
+    private EditText campoQuantidadePessoasEdit, campoHorarioReservaEdit, campoDiaReservaEdit;
     private Button botaoEditarReserva, botaoCancelarReserva, botaoSalvarAlteracoes;
     private DatabaseHelper dbHelper;
 
@@ -30,6 +27,7 @@ public class TelaMinhasReservasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_minhas_reservas);
 
         campoQuantidadePessoasEdit = findViewById(R.id.campoQuantidadePessoasEdit);
+        campoDiaReservaEdit = findViewById(R.id.campoDiaReservaEdit);
         campoHorarioReservaEdit = findViewById(R.id.campoHorarioReservaEdit);
         botaoEditarReserva = findViewById(R.id.botaoEditarReserva);
         botaoCancelarReserva = findViewById(R.id.botaoCancelarReserva);
@@ -43,6 +41,7 @@ public class TelaMinhasReservasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 campoQuantidadePessoasEdit.setEnabled(true);
+                campoDiaReservaEdit.setEnabled(true);
                 campoHorarioReservaEdit.setEnabled(true);
                 botaoSalvarAlteracoes.setVisibility(View.VISIBLE);
             }
@@ -61,6 +60,25 @@ public class TelaMinhasReservasActivity extends AppCompatActivity {
                 editarReserva();
             }
         });
+
+        campoDiaReservaEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        TelaMinhasReservasActivity.this,
+                        (view, year1, month1, dayOfMonth) -> {
+                            String selectedDate = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
+                            campoDiaReservaEdit.setText(selectedDate);
+                        },
+                        year, month, day);
+                datePickerDialog.show();
+            }
+        });
     }
 
     private void buscarReserva() {
@@ -73,9 +91,10 @@ public class TelaMinhasReservasActivity extends AppCompatActivity {
             if (cursor != null && cursor.moveToFirst()) {
                 @SuppressLint("Range") String quantidadePessoas = cursor.getString(cursor.getColumnIndex("quantidade_pessoas"));
                 @SuppressLint("Range") String horarioReserva = cursor.getString(cursor.getColumnIndex("horario_reserva"));
-
+                @SuppressLint("Range") String diaReserva = cursor.getString(cursor.getColumnIndex("dia_reserva"));
                 campoQuantidadePessoasEdit.setText(quantidadePessoas);
-                campoHorarioReservaEdit.setText(horarioReserva);
+                campoDiaReservaEdit.setText(horarioReserva);
+                campoHorarioReservaEdit.setText(diaReserva);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -115,8 +134,9 @@ public class TelaMinhasReservasActivity extends AppCompatActivity {
     private void editarReserva() {
         String novaQuantidade = campoQuantidadePessoasEdit.getText().toString();
         String novoHorario = campoHorarioReservaEdit.getText().toString();
+        String novoDia = campoDiaReservaEdit.getText().toString();
 
-        if (novaQuantidade.isEmpty() || novoHorario.isEmpty()) {
+        if (novaQuantidade.isEmpty() || novoHorario.isEmpty() || novoDia.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -128,6 +148,7 @@ public class TelaMinhasReservasActivity extends AppCompatActivity {
             ContentValues valores = new ContentValues();
             valores.put("quantidade_pessoas", novaQuantidade);
             valores.put("horario_reserva", novoHorario);
+            valores.put("dia_reserva", novoDia);
 
             int rowsUpdated = db.update(DatabaseHelper.TABELA_RESERVAS, valores, null, null);
 
@@ -135,7 +156,8 @@ public class TelaMinhasReservasActivity extends AppCompatActivity {
                 Toast.makeText(this, "Reserva atualizada com sucesso", Toast.LENGTH_SHORT).show();
                 campoQuantidadePessoasEdit.setEnabled(false);
                 campoHorarioReservaEdit.setEnabled(false);
-                botaoSalvarAlteracoes.setVisibility(View.GONE); // Esconder botão de salvar após a atualização
+                campoDiaReservaEdit.setEnabled(false);
+                botaoSalvarAlteracoes.setVisibility(View.GONE);
             } else {
                 Toast.makeText(this, "Erro ao atualizar reserva", Toast.LENGTH_SHORT).show();
             }

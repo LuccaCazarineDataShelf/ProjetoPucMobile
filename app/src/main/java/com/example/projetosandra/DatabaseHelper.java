@@ -24,6 +24,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUNA_ID_USUARIO_RESERVA = "id_usuario";
     public static final String COLUNA_QUANTIDADE_PESSOAS = "quantidade_pessoas";
     public static final String COLUNA_HORARIO_RESERVA = "horario_reserva";
+    public static final String COLUNA_DIA_RESERVA = "dia_reserva";
 
 
     public static final String TABLE_CREATE =
@@ -41,6 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUNA_ID_USUARIO_RESERVA + " INTEGER, " +
                     COLUNA_QUANTIDADE_PESSOAS + " INTEGER, " +
                     COLUNA_HORARIO_RESERVA + " TEXT, " +
+                    COLUNA_DIA_RESERVA + " TEXT, " +
                     "FOREIGN KEY (" + COLUNA_ID_USUARIO_RESERVA + ") REFERENCES " + TABELA_USUARIOS + "(" + COLUNA_ID2 + "));";
 
     public DatabaseHelper(Context context) {
@@ -59,27 +61,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABELA_RESERVAS);
         onCreate(db);
     }
-
-    /*public List<Reserva> listarReservasDoUsuario(int idUsuario) {
-        List<Reserva> reservas = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        String query = "SELECT * FROM " + TABELA_RESERVAS + " WHERE " + COLUNA_ID_USUARIO_RESERVA + " = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(idUsuario)});
-
-        if (cursor.moveToFirst()) {
-            do {
-                int idReserva = cursor.getInt(cursor.getColumnIndexOrThrow(COLUNA_ID_RESERVA));
-                int quantidadePessoas = cursor.getInt(cursor.getColumnIndexOrThrow(COLUNA_QUANTIDADE_PESSOAS));
-                String horarioReserva = cursor.getString(cursor.getColumnIndexOrThrow(COLUNA_HORARIO_RESERVA));
-
-                Reserva reserva = new Reserva(idReserva, idUsuario, quantidadePessoas, horarioReserva);
-                reservas.add(reserva);
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        db.close();
-
-        return reservas;
-    }*/
 }

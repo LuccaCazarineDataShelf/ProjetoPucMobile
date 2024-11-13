@@ -23,6 +23,14 @@
         android:inputType="time"
         android:enabled="false" />
 
+    <EditText
+        android:id="@+id/campoDiaReservaEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data da Reserva"
+        android:focusable="false"
+        android:clickable="true"/>
+
     <Button
         android:id="@+id/botaoEditarReserva"
         android:layout_width="match_parent"
