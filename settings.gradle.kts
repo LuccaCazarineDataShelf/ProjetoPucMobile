@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ProjetoSandra"
 include(":app")
+include(":telasmartwatch")
