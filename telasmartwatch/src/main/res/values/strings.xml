@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">telaSmartwatch</string>
+
+    <string-array name="lista_pratos">
+        <item>X-burguer</item>
+        <item>Salada Caesar</item>
+        <item>Frango à Parmegiana</item>
+        <item>Lasanha</item>
+        <item>Bife à Milanesa</item>
+        <item>Espaguete Carbonara</item>
+        <item>Risoto de Frutos do Mar</item>
+    </string-array>
+
+    <string-array name="lista_bebidas">
+        <item>Agua com gás</item>
+        <item>Agua sem gás</item>
+        <item>Coca Cola</item>
+        <item>Guaraná</item>
+        <item>Cerveja</item>
+        <item>Whiskey</item>
+        <item>Suco</item>
+    </string-array>
+
+    <string-array name="lista_sobremesas">
+        <item>Torta de chocolate</item>
+        <item>Sorvete</item>
+        <item>Petit gateau</item>
+    </string-array>
+
 </resources>

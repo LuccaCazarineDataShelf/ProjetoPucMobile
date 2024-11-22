@@ -11,15 +11,27 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.DeviceDefault">
 
+
         <activity android:name=".GarcomActivity"
             android:label="@string/app_name"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".PratosActivity"
+            android:label="Pratos"
+            android:exported="true" />
+
+        <activity android:name=".BebidasActivity"
+            android:label="Bebidas"
+            android:exported="true" />
+
+        <activity android:name=".SobremesasActivity"
+            android:label="Sobremesas"
+            android:exported="true" />
     </application>
 
 </manifest>

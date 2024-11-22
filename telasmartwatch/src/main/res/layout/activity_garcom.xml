@@ -10,15 +10,16 @@
         android:id="@+id/botaoPratos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Pratos"
-        android:textSize="12sp"
-        android:background="@drawable/botao_customizado"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
-        android:padding="6dp"/>
+        android:background="@drawable/botao_customizado"
+        android:padding="6dp"
+        android:text="Pratos"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/botaoBebidas"

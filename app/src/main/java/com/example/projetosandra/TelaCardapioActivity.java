@@ -16,13 +16,37 @@ public class TelaCardapioActivity extends AppCompatActivity {
         listaCardapio = findViewById(R.id.listaCardapio);
 
         String[] itensCardapio = {
-                "Prato do Dia - R$ 25,00",
-                "Pizza Margherita - R$ 30,00",
-                "Hambúrguer Gourmet - R$ 35,00",
-                "Sushi Variado - R$ 45,00",
-                "Cerveja Artesanal - R$ 15,00",
-                "Refrigerante - R$ 5,00",
-                "Sobremesa de Chocolate - R$ 12,00"
+
+                "Pratos",
+                "----------------------",
+                "X-burguer - R$ 25,00",
+                "Salada Caesar - R$ 30,00",
+                "Frango à Parmegiana - R$ 35,00",
+                "Lasanha - R$ 45,00",
+                "Bife à Milanesa - R$ 55,00",
+                "Espaguete Carbonara - R$ 65,00",
+                "Risoto de Frutos do Mar - R$ 72,00",
+                "----------------------",
+
+                "Bebidas",
+                "----------------------",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "----------------------",
+
+                "Sobremesas",
+                "----------------------",
+                "",
+                "",
+                "",
+                "----------------------",
+
+
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,

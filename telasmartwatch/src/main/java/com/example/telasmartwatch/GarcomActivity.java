@@ -1,6 +1,7 @@
 package com.example.telasmartwatch;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,22 +23,41 @@ public class GarcomActivity extends Activity {
         botaoPratos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(GarcomActivity.this, "Pratos selecionados", Toast.LENGTH_SHORT).show();
+                acessarPratos();
             }
         });
 
         botaoBebidas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(GarcomActivity.this, "Bebidas selecionadas", Toast.LENGTH_SHORT).show();
+                acessarBebidas();
             }
         });
 
         botaoSobremesas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(GarcomActivity.this, "Sobremesas selecionadas", Toast.LENGTH_SHORT).show();
+                acessarSobresas();
             }
         });
     }
+
+    private void acessarPratos() {
+        Intent intent = new Intent(GarcomActivity.this, PratosActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void acessarBebidas() {
+        Intent intent = new Intent(GarcomActivity.this, BebidasActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void acessarSobresas() {
+        Intent intent = new Intent(GarcomActivity.this, SobremesasActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
+
