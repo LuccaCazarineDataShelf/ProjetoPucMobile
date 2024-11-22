@@ -14,7 +14,7 @@ Clone o projeto:
 Se estiver usando o Git, basta rodar este comando:
 bash
 Copiar código
-git clone https://github.com/SeuUsuario/SeuProjeto.git
+git clone https://github.com/LuccaCazarineDataShelf/ProjetoPucMobile
 Ou, se preferir, faça o download direto pelo GitHub.
 Abra no Android Studio:
 
