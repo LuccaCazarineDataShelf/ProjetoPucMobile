@@ -23,6 +23,9 @@ public class PratosActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pratos);
 
+        String mesa = getIntent().getStringExtra("mesa");
+        Toast.makeText(this, "Mesa: " + mesa, Toast.LENGTH_SHORT).show();
+
         spinnerPratos = findViewById(R.id.spinnerPratos);
         campoQuantidade = findViewById(R.id.campoQuantidade);
         botaoAdicionar = findViewById(R.id.botaoAdicionar);

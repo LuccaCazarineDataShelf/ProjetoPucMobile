@@ -24,6 +24,9 @@ public class SobremesasActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sobremesas);
 
+        String mesa = getIntent().getStringExtra("mesa");
+        Toast.makeText(this, "Mesa: " + mesa, Toast.LENGTH_SHORT).show();
+
         spinnerSobremesas = findViewById(R.id.spinnerSobremesas);
         campoQuantidade = findViewById(R.id.campoQuantidade);
         botaoAdicionar = findViewById(R.id.botaoAdicionar);

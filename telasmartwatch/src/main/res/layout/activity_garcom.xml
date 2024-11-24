@@ -6,47 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".GarcomActivity">
 
-    <Button
-        android:id="@+id/botaoPratos"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/botao_customizado"
-        android:padding="6dp"
-        android:text="Pratos"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
+    <Spinner
+        android:id="@+id/spinnerMesas"
+        android:layout_width="142dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/lista_mesas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/botaoBebidas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Bebidas"
-        android:textSize="12sp"
+        android:id="@+id/botaoPratos"
+        android:layout_width="154dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/botao_customizado"
+        android:text="Pratos"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/botaoPratos"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinnerMesas" />
+
+    <Button
+        android:id="@+id/botaoBebidas"
+        android:layout_width="165dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botao_customizado"
+        android:text="Bebidas"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/botaoPratos" />
 
     <Button
         android:id="@+id/botaoSobremesas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Sobremesas"
-        android:textSize="12sp"
+        android:layout_width="165dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/botao_customizado"
+        android:text="Sobremesas"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/botaoBebidas"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/botaoBebidas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

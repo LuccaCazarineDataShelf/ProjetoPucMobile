@@ -23,6 +23,9 @@ public class BebidasActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bebidas);
 
+        String mesa = getIntent().getStringExtra("mesa");
+        Toast.makeText(this, "Mesa: " + mesa, Toast.LENGTH_SHORT).show();
+
         spinnerBebidas = findViewById(R.id.spinnerBebidas);
         campoQuantidade = findViewById(R.id.campoQuantidade);
         botaoAdicionar = findViewById(R.id.botaoAdicionar);
