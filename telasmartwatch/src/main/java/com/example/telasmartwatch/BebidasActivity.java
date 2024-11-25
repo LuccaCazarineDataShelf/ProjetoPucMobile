@@ -17,19 +17,21 @@ public class BebidasActivity extends Activity {
     private EditText campoQuantidade;
     private Button botaoAdicionar;
     private List<Pedido> pedidos;
+    private  String mesaSelecionada;
+    private DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bebidas);
 
-        String mesa = getIntent().getStringExtra("mesa");
-        Toast.makeText(this, "Mesa: " + mesa, Toast.LENGTH_SHORT).show();
+        mesaSelecionada = getIntent().getStringExtra("mesa");
 
         spinnerBebidas = findViewById(R.id.spinnerBebidas);
         campoQuantidade = findViewById(R.id.campoQuantidade);
         botaoAdicionar = findViewById(R.id.botaoAdicionar);
 
+        dbHelper = new DatabaseHelper(this);
         pedidos = new ArrayList<>();
 
         botaoAdicionar.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +43,7 @@ public class BebidasActivity extends Activity {
     }
 
     private void adicionarPedido() {
-        String bebida = spinnerBebidas.getSelectedItem().toString();
+        String bebidas = spinnerBebidas.getSelectedItem().toString();
         String quantidadeTexto = campoQuantidade.getText().toString();
 
         if (quantidadeTexto.isEmpty()) {
@@ -49,12 +51,28 @@ public class BebidasActivity extends Activity {
             return;
         }
 
+        if (mesaSelecionada == null || mesaSelecionada.isEmpty()) {
+            Toast.makeText(this, "Mesa não selecionada. Volte e escolha uma mesa.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         int quantidade = Integer.parseInt(quantidadeTexto);
-        Pedido pedido = new Pedido("Bebida", bebida, quantidade);
 
-        pedidos.add(pedido);
+        long resultado = dbHelper.inserirPedido(mesaSelecionada, bebidas, quantidade);
 
-        Toast.makeText(this, "Adicionado: " + bebida + " (x" + quantidade + ")", Toast.LENGTH_SHORT).show();
-        campoQuantidade.setText("");
+        if (resultado != -1) {
+            Toast.makeText(this, "Pedido salvo: Mesa " + mesaSelecionada + ", Item: " + bebidas + " (x" + quantidade + ")", Toast.LENGTH_SHORT).show();
+            campoQuantidade.setText("");
+        } else {
+            Toast.makeText(this, "Erro ao salvar pedido", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (dbHelper != null) {
+            dbHelper.close();
+        }
     }
 }

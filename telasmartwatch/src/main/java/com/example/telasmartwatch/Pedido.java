@@ -23,4 +23,16 @@ public class Pedido {
     public int getQuantidade() {
         return quantidade;
     }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
 }
