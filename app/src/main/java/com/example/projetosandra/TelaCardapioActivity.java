@@ -30,23 +30,21 @@ public class TelaCardapioActivity extends AppCompatActivity {
 
                 "Bebidas",
                 "----------------------",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
+                "Agua com gás",
+                "Agua sem gás",
+                "Guaraná",
+                "Coca cola",
+                "Cerveja",
+                "Whiskey",
+                "Suco",
                 "----------------------",
 
                 "Sobremesas",
                 "----------------------",
-                "",
-                "",
-                "",
+                "Torta de chocolate",
+                "Sorvete",
+                "Petit Gateau",
                 "----------------------",
-
-
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
