@@ -1,87 +1,81 @@
-# Projeto Telas para Smartwatch e Smartphone
+# Como executar o projeto
 
-Este projeto é um sistema de gerenciamento para restaurante, desenvolvido com foco em integração entre um aplicativo de smartwatch para garçons e um aplicativo de smartphone para os clientes.
+## 1. Pré-requisitos
 
-## Funcionalidades principais
-- **Cliente (Smartphone)**:
-  - Reservar mesas.
-  - Visualizar e editar reservas.
-  - Navegar pelo cardápio.
-
-- **Garçom (Smartwatch)**:
-  - Selecionar itens do cardápio (pratos, bebidas e sobremesas).
-  - Registrar pedidos.
-  - Enviar pedidos diretamente para a cozinha.
+- Android Studio instalado (versão recente).
+- JDK já vem com o Android Studio.
+- Conta no Firebase.
 
 ---
 
-## Pré-requisitos
-Antes de rodar o projeto, você precisará de:
-- [**Android Studio**](https://developer.android.com/studio): Baixe a versão mais recente.
-- **Java Development Kit (JDK)**: Versão 11 ou superior.
-- **SDK do Android 13 (API level 33 - Tiramisu)**.
+## 2. Clonar o repositório
+
+```bash
+git clone <URL-DO-REPOSITORIO>
+cd ProjetoPucMobile
+```
+
+Abra a pasta **`ProjetoPucMobile`** no Android Studio (`File > Open`).
 
 ---
 
-## Configurando o projeto
-1. **Clone o repositório**:
-   Use o Git para clonar o projeto no seu computador:
-   ```bash
-   git clone https://github.com/LuccaCazarineDataShelf/ProjetoPucMobile.git
+## 3. Configurar o Firebase (obrigatório para o app funcionar)
 
-Abra o projeto no Android Studio:
+1. Acesse o [Firebase Console](https://console.firebase.google.com/) e crie um projeto.
+2. Ative:
+   - **Firestore Database**
+   - **Authentication → Sign-in anônimo**
+3. Registre **3 apps Android** no mesmo projeto Firebase, com estes IDs:
 
-- No Android Studio, vá em **File > Open**.
-- Selecione a pasta onde o projeto foi salvo.
-- **Sincronize o Gradle**: Assim que o projeto for carregado, clique em **Sync Now** no banner superior.
+   - Módulo `app`  
+     `applicationId`: `com.example.projetosandra`
+   - Módulo `cozinha`  
+     `applicationId`: `com.example.cozinha`
+   - Módulo `telasmartwatch`  
+     `applicationId`: `com.example.telasmartwatch`
 
-Configure o SDK:
+4. Para cada app registrado no Firebase:
+   - Baixe o arquivo `google-services.json`.
+   - Salve nos caminhos:
 
-- Vá para **File > Project Structure > SDK Location**.
-- Confirme que o SDK está configurado para o Android 13 (API level 33 - Tiramisu).
+   ```text
+   app/google-services.json
+   cozinha/google-services.json
+   telasmartwatch/google-services.json
+   ```
 
-Configure os emuladores (opcional): Configure os dispositivos virtuais no Android Studio:
-- **Wear OS (Garçom)**: Tela de 454x454 px (API level 33).
-- **Smartphone (Cliente)**: Use um dispositivo padrão como Pixel 4, API level 33.
-
----
-
-## Alternando entre os módulos
-Este projeto está dividido em dois módulos principais:
-- **app (Cliente)**: Tela do cliente no smartphone.
-- **wear (Garçom)**: Tela do garçom no smartwatch.
-
-### Como alternar entre os módulos:
-- No Android Studio, clique no menu suspenso ao lado do botão de **Run** (ícone de Play).
-- Escolha o módulo que deseja executar:
-  - **app** para testar a tela do cliente.
-  - **wear** para testar a tela do garçom.
+5. No Android Studio, rode **Sync Gradle**.
 
 ---
 
-## Rodando o projeto
-1. Escolha o módulo desejado (Cliente ou Garçom) como descrito acima.
-2. Selecione o dispositivo para teste:
-   - **Smartwatch** ou **emulador Wear OS** para o módulo do garçom.
-   - **Smartphone** ou **emulador Android** para o módulo do cliente.
-3. Clique no botão **Run** (ícone de Play) ou pressione **Shift + F10** no teclado.
-   O aplicativo será compilado e instalado no dispositivo selecionado.
+## 4. Rodar cada módulo
+
+> Dica: se o PC for fraco, rode **apenas um emulador por vez**.
+
+### 4.1. Módulo `app` (tablet/cliente)
+
+1. Crie um emulador Android normal (Phone/Tablet).
+2. No topo do Android Studio, selecione a configuração de execução do módulo **`app`**.
+3. Clique em **Run ▶**.
+
+### 4.2. Módulo `cozinha` (tablet/cozinha)
+
+1. Crie (ou reutilize) um emulador Android.
+2. Selecione a configuração de execução do módulo **`cozinha`**.
+3. Clique em **Run ▶**.
+
+### 4.3. Módulo `telasmartwatch` (Wear OS/garçom)
+
+1. Crie um emulador **Wear OS** no Android Studio.
+2. Selecione a configuração de execução do módulo **`telasmartwatch`**.
+3. Clique em **Run ▶**.
+4. No primeiro uso, aceite a permissão de **notificações** no relógio.
 
 ---
 
-## Notas importantes
+## 5. Observações rápidas
 
-### Banco de Dados
-O projeto utiliza **SQLite** para armazenar dados, como:
-- Pedidos registrados pelo garçom.
-- Reservas feitas pelos clientes.
-- Usuários cadastrados.
-
-Caso algo não apareça como esperado, verifique os dados diretamente no banco.
-
-### Permissões
-O módulo **Wear OS (Garçom)** pode solicitar permissões adicionais, como:
-- **Internet**: Para comunicação futura com a cozinha.
-- **Bluetooth**: Para sincronizar dados entre dispositivos.
-
-Certifique-se de aceitar as permissões ao rodar o app.
+- Se aparecer erro de índice do Firestore no Logcat, abra o link sugerido pelo Firebase e crie o índice (basta aceitar as opções padrão).
+- Se algum módulo não encontrar o Firebase, verifique se:
+  - O `google-services.json` está no módulo correto.
+  - O `applicationId` no `build.gradle` corresponde ao cadastrado no Firebase.
