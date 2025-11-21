@@ -35,6 +35,7 @@ public class GarcomActivity extends ComponentActivity {
     private TextView emptyView;
     private final List<NotificationItem> items = new ArrayList<>();
     private NotificationsAdapter adapter;
+    private WearFirestoreService watchService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +54,9 @@ public class GarcomActivity extends ComponentActivity {
         }
 
         ensureNotifPermission();
+
+        watchService = new WearFirestoreService(this);
+        watchService.start();
 
         androidx.wear.widget.WearableRecyclerView rv = findViewById(R.id.recycler);
         emptyView = findViewById(R.id.emptyView);

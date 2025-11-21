@@ -4,7 +4,7 @@ public class MenuItemModel {
     public final String category;
     public final String name;
     public final double price;
-    public final int imageRes;   // novo: imagem do item (drawable)
+    public final int imageRes;
 
     public MenuItemModel(String category, String name, double price, int imageRes) {
         this.category = category;

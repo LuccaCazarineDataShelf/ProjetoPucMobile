@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "125047328728",
+    "project_id": "tcc-smartwatch",
+    "storage_bucket": "tcc-smartwatch.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125047328728:android:c5b98cffbc3895cdb12cad",
+        "android_client_info": {
+          "package_name": "com.example.cozinha"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhELAfPHoCmTzPiUWKjaa1Lrx9q4KIOYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125047328728:android:359d0f3ef38f17f3b12cad",
+        "android_client_info": {
+          "package_name": "com.example.projetosandra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhELAfPHoCmTzPiUWKjaa1Lrx9q4KIOYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125047328728:android:a8145386dbe35246b12cad",
+        "android_client_info": {
+          "package_name": "com.example.telasmartwatch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhELAfPHoCmTzPiUWKjaa1Lrx9q4KIOYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,10 +14,10 @@ public final class DataProvider {
 
         // PRATOS
         put("Pratos",
-                new MenuItemModel("Pratos","Spaghetti à Bolonhesa", 38.0, R.drawable.spageti),
-                new MenuItemModel("Pratos","Parmegiana",           42.0, R.drawable.parmegiana),
-                new MenuItemModel("Pratos","Filé de Frango Grelhado", 34.0, android.R.drawable.ic_menu_crop),
-                new MenuItemModel("Pratos","Risoto de Cogumelos",  39.0, android.R.drawable.ic_menu_crop)
+                new MenuItemModel("Pratos","Spaghetti à Bolonhesa", 38.0, R.drawable.spageti2),
+                new MenuItemModel("Pratos","Parmegiana", 42.0, R.drawable.parmegiana),
+                new MenuItemModel("Pratos","Filé de Frango Grelhado", 34.0, R.drawable.frango),
+                new MenuItemModel("Pratos","Risoto de Cogumelos",  39.0, R.drawable.cogumelos)
         );
 
         // SOBREMESAS
@@ -30,9 +30,9 @@ public final class DataProvider {
 
         // VEGETARIANOS
         put("Vegetarianos",
-                new MenuItemModel("Vegetarianos","Hambúrguer de Grão-de-bico",36.00, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Vegetarianos","Lasanha de Berinjela",37.00, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Vegetarianos","Salada Mediterrânea",29.00, android.R.drawable.ic_menu_gallery)
+                new MenuItemModel("Vegetarianos","Hambúrguer de Grão-de-bico",36.00, R.drawable.bico),
+                new MenuItemModel("Vegetarianos","Lasanha de Berinjela",37.00, R.drawable.berinjela),
+                new MenuItemModel("Vegetarianos","Salada",29.00, R.drawable.salada)
 
         );
 
