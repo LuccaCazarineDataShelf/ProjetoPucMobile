@@ -22,10 +22,10 @@ public final class DataProvider {
 
         // SOBREMESAS
         put("Sobremesas",
-                new MenuItemModel("Sobremesas","Pudim",     16.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Sobremesas","Brownie",   18.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Sobremesas","Sorvete",   14.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Sobremesas","Cheesecake",19.0, android.R.drawable.ic_menu_gallery)
+                new MenuItemModel("Sobremesas","Pudim",     16.0, R.drawable.pudim),
+                new MenuItemModel("Sobremesas","Brownie",   18.0, R.drawable.brownie),
+                new MenuItemModel("Sobremesas","Sorvete",   14.0, R.drawable.sorvete),
+                new MenuItemModel("Sobremesas","Cheesecake",19.0, R.drawable.cake)
         );
 
         // VEGETARIANOS
@@ -39,21 +39,21 @@ public final class DataProvider {
         // BEBIDAS
 
         put("Bebidas",
-                new MenuItemModel("Bebidas","Suco de Laranja", 10.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Bebidas","Suco de Melancia",10.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Bebidas","Suco de Abacaxi", 10.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Bebidas","Coca-Cola",        8.0,  android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Bebidas","Coca-Cola Zero",   8.0,  android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Bebidas","Sprite",           8.0,  android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Bebidas","Água",             5.0,  android.R.drawable.ic_menu_gallery)
+                new MenuItemModel("Bebidas","Suco de Laranja", 10.0, R.drawable.laranja),
+                new MenuItemModel("Bebidas","Suco de Melancia",10.0, R.drawable.melancia),
+                new MenuItemModel("Bebidas","Suco de Abacaxi", 10.0, R.drawable.abacaxi),
+                new MenuItemModel("Bebidas","Coca-Cola",        8.0, R.drawable.coca),
+                new MenuItemModel("Bebidas","Coca-Cola Zero",   8.0, R.drawable.cocazero),
+                new MenuItemModel("Bebidas","Sprite",           8.0, R.drawable.sprite),
+                new MenuItemModel("Bebidas","Água",             5.0, R.drawable.agua)
         );
 
         // ALCOÓLICOS
         put("Alcoólicos",
-                new MenuItemModel("Alcoólicos","Cerveja",     12.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Alcoólicos","Chopp",       14.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Alcoólicos","Vinho (taça)",25.0, android.R.drawable.ic_menu_gallery),
-                new MenuItemModel("Alcoólicos","Caipirinha",  22.0, android.R.drawable.ic_menu_gallery)
+                new MenuItemModel("Alcoólicos","Cerveja",     12.0, R.drawable.cerveja),
+                new MenuItemModel("Alcoólicos","Chopp",       14.0, R.drawable.chop),
+                new MenuItemModel("Alcoólicos","Vinho (taça)",25.0, R.drawable.vinho),
+                new MenuItemModel("Alcoólicos","Caipirinha",  22.0, R.drawable.capirinha)
         );
 
         inited = true;
